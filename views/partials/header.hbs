@@ -16,6 +16,11 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" href="/admin">Административная панель</a>
                         </li>
+                        {{#if loggedIn}}
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="/logout">Выйти из аккаунта</a>
+                            </li>
+                        {{/if}}
                     </ul>
                 </div>
             </div>
