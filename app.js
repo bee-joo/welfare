@@ -32,7 +32,7 @@ hbs.registerPartials('./views/partials'); // задаём папку с partial 
 
 app.use(homeRouter); // используем все маршруты из homeRouter
 app.use('/admin', checkAuth, adminRouter); // checkAuth - middleware для проверки аутентифицирован ли пользователь, применяем ко всем маршрутам из adminRouter (код в файле middlewares.js)
-app.use('/login', loginRouter);
+app.use(loginRouter);
 
 app.use('*', notFoundHandler); // если ничего не совпало с маршрутами, которые обозначены выше - кидаем ошибку 404 с помощью handler
 app.use(errorHandler); // используем handler ошибок
