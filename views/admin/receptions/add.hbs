@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Добавление кабинета</title>
+    <meta charset="utf-8" />
+</head>
+
+<body>
+    {{> header}}
+    <div class="container">
+        <h3>Добавление кабинета и окна</h3>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="input-group input-group-lg">
+                    <form method="POST">
+                        <div class="form-outline mb-4 d-flex flex-column">
+                            <label>Район</label>
+                            <select name="county" class="form-control">
+                                {{#each counties}}
+                                <option value='{{this.Id_county}}'>{{this.County_name}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+                        <div class="form-outline mb-4 d-flex flex-column">
+                            <label>Кабинет</label>
+                            <input type="number" name="cabinet" class="form-control" />
+                        </div>
+                        <div class="form-outline mb-4 d-flex flex-column">
+                            <label>Окно</label>
+                            <input type="number" name="reception" class="form-control" />
+                        </div>
+                        <div class="form-outline mb-4 d-flex flex-column">
+                            <label>Тематика</label>
+                            <select name="theme" class="form-control">
+                                {{#each themes}}
+                                <option value='{{this}}'>{{this}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+                        <input type="submit" value="Добавить" class="btn btn-primary btn-block mb-4" />
+                        <div class="form-outline mb-4 d-flex flex-column">
+                            <a href="/admin/receptions">Назад</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+</body>
+<html>

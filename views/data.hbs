@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ввод данных</title>
+    <meta charset="utf-8" />
+</head>
+
+<body>
+    {{> header}}
+    <div class="container">
+        <h1>Запись на приём в Калачёвском районе</h1><br />
+        <p>Дата приёма: <a id="formattedDate"></a></p>
+        <p>Тема визита: {{theme}}</p>
+        <h3>Введите ваши данные</h3>
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="input-group input-group-lg">
+                    <form method="POST">
+                        <div class="form-outline mb-4 d-flex flex-column">
+                            <label>Имя</label>
+                            <input type="text" name="name" value="{{formData.name}}" class="form-control">
+                            {{#if error.name}}
+                            <a style="color: red;"> * Невалидно</a>
+                            {{/if}}
+                        </div>
+                        <div class="form-outline mb-4 d-flex flex-column">
+                            <label>Email</label>
+                            <input type="email" name="email" value="{{formData.email}}" class="form-control">
+                            {{#if error.email}}
+                            <a style="color: red;"> * Некорректный адрес</a>
+                            {{/if}}
+                        </div>
+                        <div class="form-outline mb-4 d-flex flex-column">
+                            <label>Номер телефона</label>
+                            <div style="display: inline-block">
+                                <input type="text" readonly class="form-control-plaintext"
+                                    style="float: left; width: 10%;" value="+7">
+                                <input type="number" name="phone" maxlength="10" minlength="10" class="form-control"
+                                    value="{{formData.phone}}" style="width: 90%;">
+                            </div>
+                            {{#if error.phone}}
+                            <a style="color: red;"> * Некорректный номер телефона</a>
+                            {{/if}}
+                        </div>
+                        <input type="submit" value="Подтвердить" class="btn btn-primary btn-block mb-4" />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./js/formatDate.js" date="{{date}}"></script>
+</body>
+<html>

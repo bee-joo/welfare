@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Номерки</title>
+    <meta charset="utf-8" />
+</head>
+
+<body>
+    {{> header}}
+    <div class="container">
+        <h3>Свободные номерки</h3>
+        {{#if result}}
+        <div>
+            <a href="/admin/available">Назад</a>
+        </div>
+        <br />
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        <a>Кабинет</a>
+                    </th>
+                    <th>
+                        <a>Окно</a>
+                    </th>
+                    <th>
+                        <a>Тематика</a>
+                    </th>
+                    <th>
+                        <a>Время</a>
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each result}}
+                <tr>
+                    <td>
+                        {{this.reception.Cabinet}}
+                    </td>
+                    <td>
+                        {{this.reception.Num_reception}}
+                    </td>
+                    <td>
+                        {{this.reception.Theme}}
+                    </td>
+                    <td>
+                        {{this.date}}
+                    </td>
+                    <td>
+                        <a href="/admin/available/{{this.id}}/delete">Удалить</a>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+        {{else}}
+        <h5>На эту дату номерков нет</h5>
+        <div>
+            <a href="/admin/available">Назад</a>
+        </div>
+        {{/if}}
+    </div>
+</body>
+</html>

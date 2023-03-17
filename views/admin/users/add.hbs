@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Добавление пользователя</title>
+    <meta charset="utf-8" />
+</head>
+
+<body>
+    {{> header}}
+    <div class="container">
+        <h3>Добавление пользователя</h3>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="input-group input-group-lg">
+                    <form method="POST">
+                        <div class="form-outline mb-4 d-flex flex-column">
+                            <label>Имя пользователя</label>
+                            <input type="text" name="username" required="true" class="form-control">
+                        </div>
+                        <div class="form-outline mb-4 d-flex flex-column">
+                            <label>Пароль</label>
+                            <input type="password" name="password" required="true" class="form-control">
+                        </div>
+                        <div class="form-outline mb-4 d-flex flex-column">
+                            <label>Роль</label>
+                            <select name="role" class="form-control">
+                                {{#each themes}}
+                                <option value='{{this}}'>{{this}}</option>
+                                {{/each}}
+                                <option value='admin'>Администратор</option>
+                            </select>
+                        </div>
+                        <div class="form-outline mb-4 d-flex flex-column">
+                            <label>Район</label>
+                            <select name="county" class="form-control">
+                                {{#each counties}}
+                                <option value='{{this.Id_county}}'>{{this.County_name}}</option>
+                                {{/each}}
+                                <option value='admin'>Администратор</option>
+                            </select>
+                        </div>
+                        <input type="submit" value="Добавить" class="btn btn-primary btn-block mb-4" />
+                        <div class="form-outline mb-4 d-flex flex-column">
+                            <a href="/admin/users">Назад</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

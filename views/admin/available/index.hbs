@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Номерки</title>
+    <meta charset="utf-8" />
+</head>
+
+<body>
+    {{> header}}
+    <div class="container">
+        <div class="row">
+            <div class="card" style="width: 18rem; margin: .5rem;">
+                <img class="card-img-top" src="/img/1.jpg" alt="Card image cap">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">Добавление</h5>
+                    <p class="card-text">Добавление номерка</p>
+                    <a href="/admin/available/add" class="align-self-start btn btn-primary"
+                        style="margin-top: auto;">Перейти</a>
+                </div>
+            </div>
+            <div class="card" style="width: 18rem; margin: .5rem;">
+                <img class="card-img-top" src="/img/2.jpg" alt="Card image cap">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">Просмотр</h5>
+                    <p class="card-text">Просмотр свободных номерков по дате</p>
+                    <form method="post">
+                        <p><input type="date" name="date" required="true"></p>
+                        <input type="submit" class="align-self-start btn btn-primary" style="margin-top: auto;"
+                            value="Перейти" />
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <a href="/admin" class="align-self-start btn btn-primary"
+                style="margin-top: auto; margin: .5rem;">Назад</a>
+        </div>
+    </div>
+</body>

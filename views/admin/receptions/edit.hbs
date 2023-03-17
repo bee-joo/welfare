@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Редактирование</title>
+    <meta charset="utf-8" />
+</head>
+
+<body>
+    {{> header}}
+    <div class="container">
+        <div class="form-group">
+            <div class="form-group">
+                <form method="POST">
+                    <h3>Редактирование кабинета</h3>
+                    <div class="form-floating mb-3 d-flex flex-column">
+                        <label>Кабинет</label>
+                        <input type="number" name="cabinet" class="align-self-start" value="{{reception.Cabinet}}"/>
+                    </div>
+                    <div class="form-floating mb-3 d-flex flex-column">
+                        <label>Окно</label>
+                        <input type="number" name="reception" class="align-self-start" value="{{reception.Num_reception}}"/>
+                    </div>
+                    <div class="form-floating mb-3 d-flex flex-column">
+                        <label>Тематика</label>
+                        <select name="theme" class="align-self-start">
+                            {{#each themes}}
+                                <option value='{{this}}'>{{this}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+                    <input type="submit" value="Сохранить" class="btn btn-primary" />
+                    <div class="form-floating mb-3">
+                        <a href="/admin/receptions">Назад</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+<html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Районы</title>
+    <meta charset="utf-8" />
+</head>
+
+<body>
+    {{> header}}
+    <div class="container">
+        <h3>Районы</h3>
+        <div>
+            <a href="/admin/county/add">Добавить</a>
+            <a href="/admin">Назад</a>
+        </div>
+        <br />
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        <a>Район</a>
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each counties}}
+                <tr>
+                    <td>
+                        {{this.County_name}}
+                    </td>
+                    <td>
+                        <a href="/admin/county/{{this.Id_county}}/delete">Удалить</a>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

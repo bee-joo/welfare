@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Пользователи</title>
+    <meta charset="utf-8" />
+</head>
+
+<body>
+    {{> header}}
+    <div class="container">
+        <h3>Список пользователей</h3>
+        <div>
+            <a href="/admin/users">Назад</a>
+        </div>
+        <br />
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        <a>Id</a>
+                    </th>
+                    <th>
+                        <a>Имя пользователя</a>
+                    </th>
+                    <th>
+                        <a>Роль</a>
+                    </th>
+                    <th>
+                        <a>Район</a>
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each result}}
+                <tr>
+                    <td>
+                        {{this.Id_user}}
+                    </td>
+                    <td>
+                        {{this.Username}}
+                    </td>
+                    <td>
+                        {{this.Role}}
+                    </td>
+                    <td>
+                        {{this.County}}
+                    </td>
+                    <td>
+                        <a href="/admin/users/{{this.Id_user}}/edit">Изменить роль</a>
+                        <a href="/admin/users/{{this.Id_user}}/delete">Удалить</a>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Главная</title>
+    <meta charset="utf-8" />
+</head>
+
+<body>
+    {{> header}}
+    <div class="container">
+        <h1>Просмотр визитов</h1>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="input-group input-group-lg">
+                    <form method="post">
+                        <div class="form-outline mb-4 d-flex flex-column">
+                            <label>Кабинет и окно</label>
+                            <select name="receptionId" class="form-control">
+                                {{#each receptions}}
+                                <option value='{{this.Id_reception}}'>Кабинет {{this.Cabinet}}, окно
+                                    {{this.Num_reception}}
+                                    ({{this.Theme}})</option>
+                                {{/each}}
+                            </select>
+                        </div>
+                        <div class="form-outline mb-4 d-flex flex-column">
+                            <label>Дата</label>
+                            <input type="date" name="date" required="true" class="form-control">
+                        </div>
+                        <input type="submit" value="Подтвердить" class="btn btn-primary btn-block mb-4" />
+                        <div class="form-outline mb-4 d-flex flex-column">
+                            <a href="/admin">Назад</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Главная</title>
+    <meta charset="utf-8" />
+</head>
+
+<body>
+    {{> header}}
+    <div class="container">
+        <h1>Запись на приём</h1><br />
+        <div class="row">
+            <div class="col-md-12">
+                <div class="input-group input-group-lg">
+                    <form method="POST">
+                        <div class="form-outline mb-4 d-flex flex-column">
+                            <label>Район</label>
+                            <select name="county" class="form-control">
+                                {{#each counties}}
+                                <option value='{{this.Id_county}}'>{{this.County_name}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+
+                        <div class="form-outline mb-4 d-flex flex-column">
+                            <label>Тематика</label>
+                            <select name="theme" class="form-control">
+                                {{#each themes}}
+                                <option value='{{this}}'>{{this}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+
+                        <div class="form-outline mb-4 d-flex flex-column">
+                            <label>Дата визита</label>
+                            <input type="date" name="date" required="true" class="form-control">
+                        </div>
+
+                        <input type="submit" value="Далее" class="btn btn-primary btn-block mb-4" />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<html>

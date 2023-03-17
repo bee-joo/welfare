@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Администрирование</title>
+    <meta charset="utf-8" />
+</head>
+
+<body>
+    {{> header}}
+    <div class="container">
+        <div class="row">
+            {{#if admin}}
+            <div class="card" style="width: 18rem; margin: .5rem;">
+                <img class="card-img-top" src="./img/1.jpg" alt="Card image cap">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">Кабинеты</h5>
+                    <p class="card-text">Добавление и просмотр кабинетов и окон</p>
+                    <a href="/admin/receptions" class="align-self-start btn btn-primary" style="margin-top: auto;">Перейти</a>
+                </div>
+            </div>
+            {{/if}}
+            <div class="card" style="width: 18rem; margin: .5rem;">
+                <img class="card-img-top" src="./img/2.jpg" alt="Card image cap">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">Номерки</h5>
+                    <p class="card-text">Добавление и просмотр свободных номерков</p>
+                    <a href="/admin/available" class="align-self-start btn btn-primary" style="margin-top: auto;">Перейти</a>
+                </div>
+            </div>
+            <div class="card" style="width: 18rem; margin: .5rem;">
+                <img class="card-img-top" src="./img/3.jpg" alt="Card image cap">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">Визиты</h5>
+                    <p class="card-text">Просмотр визитов</p>
+                    <a href="/admin/visits" class="align-self-start btn btn-primary" style="margin-top: auto;">Перейти</a>
+                </div>
+            </div>
+            {{#if admin}}
+            <div class="card" style="width: 18rem; margin: .5rem;">
+                <img class="card-img-top" src="./img/4.jpg" alt="Card image cap">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">Пользователи</h5>
+                    <p class="card-text">Управление пользователями</p>
+                    <a href="/admin/users" class="align-self-start btn btn-primary" style="margin-top: auto;">Перейти</a>
+                </div>
+            </div>
+            <div class="card" style="width: 18rem; margin: .5rem;">
+                <img class="card-img-top" src="./img/2.jpg" alt="Card image cap">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">Районы</h5>
+                    <p class="card-text">Добавление и просмотр районов</p>
+                    <a href="/admin/county" class="align-self-start btn btn-primary" style="margin-top: auto;">Перейти</a>
+                </div>
+            </div>
+            {{/if}}
+            <div class="card" style="width: 18rem; margin: .5rem;">
+                <img class="card-img-top" src="./img/5.jpg" alt="Card image cap">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">Пароль</h5>
+                    <p class="card-text">Изменение пароля аккаунта</p>
+                    <a href="/admin/password" class="align-self-start btn btn-primary" style="margin-top: auto;">Перейти</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

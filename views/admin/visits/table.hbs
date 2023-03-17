@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Номерки</title>
+    <meta charset="utf-8" />
+</head>
+
+<body>
+    {{> header}}
+    <div class="container">
+        <h3>Визиты</h3>
+        <h4>Дата: {{date}}, кабинет: {{reception.Cabinet}}, окно: {{reception.Num_reception}}</h4>
+
+        <div>
+            <a href="/admin/visits">Назад</a>
+        </div>
+        <br />
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        <a>Время визита</a>
+                    </th>
+                    <th>
+                        <a>Имя клиента</a>
+                    </th>
+                    <th>
+                        <a>Почта</a>
+                    </th>
+                    <th>
+                        <a>Номер телефона</a>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each result}}
+                <tr>
+                    <td>
+                        {{this.date.hours}}:{{this.date.minutes}}
+                    </td>
+                    <td>
+                        {{this.client.Name}}
+                    </td>
+                    <td>
+                        {{this.client.Email}}
+                    </td>
+                    <td>
+                        +7{{this.client.Phone}}
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</body>

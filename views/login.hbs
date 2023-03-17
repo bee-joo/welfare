@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Вход</title>
+    <meta charset="utf-8" />
+</head>
+
+<body>
+    {{> header}}
+    <div class="container">
+        <h3>Выполните вход в систему</h3>
+        {{#if error}}
+        <a style="color: red;">Неверный логин или пароль</a>
+        {{/if}}
+        <div class="row">
+            <div class="col-md-12">
+                <div class="input-group input-group-lg">
+                    <form method="post">
+                        <div class="form-outline mb-4 d-flex flex-column">
+                            <label class="form-label">Имя пользователя</label>
+                            <input type="text" class="form-control" name="username" />
+                        </div>
+
+                        <div class="form-outline mb-4 d-flex flex-column">
+                            <label class="form-label">Пароль</label>
+                            <input type="password" class="form-control" name="password" />
+                        </div>
+
+                        <input type="submit" class="btn btn-primary btn-block mb-4" value="Войти" />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
