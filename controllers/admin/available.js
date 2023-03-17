@@ -96,7 +96,8 @@ availableRouter.get('/add', (req, res, next) => { // маршрут формы �
 
   Reception.findAll(findCondition)
     .then(receptions => res.render(`${folder}/add`, {
-      receptions: receptions
+      receptions: receptions,
+      loggedIn: true
     }))
     .catch(err => next(err)); // находим окна по заданному выше условию и рендерим страницу 
 });

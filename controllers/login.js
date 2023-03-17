@@ -2,14 +2,15 @@ import { Router } from 'express';
 import bcrypt from 'bcrypt';
 
 import { User } from '../models/models.js';
+import { checkAuth } from '../middlewares.js';
 
 const loginRouter = Router();
 
-loginRouter.get('/', (req, res, next) =>
+loginRouter.get('/login', (req, res, next) =>
   res.render('login') // в корневом маршруте рендерим форму для логина
 );
 
-loginRouter.post('/', (req, res, next) => { // маршрут отправки формы
+loginRouter.post('/login', (req, res, next) => { // маршрут отправки формы
   // получаем имя пользователя и пароль из данных формы 
   let username = req.body.username;
   let password = req.body.password;
@@ -42,6 +43,11 @@ loginRouter.post('/', (req, res, next) => { // маршрут отправки �
     .catch(err => res.render('login', {
       error: true
     }));
+});
+
+loginRouter.get('/logout', checkAuth, (req, res, next) => {
+  req.session.destroy();
+  res.redirect('/');
 })
 
 export default loginRouter;

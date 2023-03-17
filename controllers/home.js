@@ -18,7 +18,8 @@ homeRouter.get('/', (req, res, next) =>
     .then(counties =>
       res.render('index', {
         themes: themes,
-        counties: counties
+        counties: counties,
+        loggedIn: req.session.loggedin
       })) // рендерим индексную страницу на корневом маршруте
 );
 
@@ -37,7 +38,8 @@ homeRouter.get('/time', (req, res, next) => { // следующая форма -
 
   if (selectedDate == null || theme == null || countyId == null) {
     return res.status(404).render('error', {
-      error: NotFoundError
+      error: NotFoundError,
+      loggedIn: req.session.loggedin
     }); // если данные не были введены - выводим ошибку
   }
 
@@ -50,7 +52,8 @@ homeRouter.get('/time', (req, res, next) => { // следующая форма -
       error: {
         title: 'Ошибка',
         text: 'Нельзя записаться на эту дату'
-      } // если введена слишком старая дата - выводим ошибку
+      }, // если введена слишком старая дата - выводим ошибку
+      loggedIn: req.session.loggedin
     });
   }
 
@@ -89,7 +92,8 @@ homeRouter.get('/time', (req, res, next) => { // следующая форма -
           error: {
             title: 'Ошибка',
             text: 'Номерков нет'
-          } // если номерков нет - возвращаем ошибку
+          }, // если номерков нет - возвращаем ошибку
+          loggedIn: req.session.loggedin
         });
       }
 
@@ -114,7 +118,10 @@ homeRouter.get('/time', (req, res, next) => { // следующая форма -
         })
       );
 
-      res.render('time', { results: results }); // рендерим результат
+      res.render('time', { 
+        results: results, 
+        loggedIn: req.session.loggedin 
+      }); // рендерим результат
     })
     .catch(err => next(err));
 });
@@ -131,13 +138,15 @@ homeRouter.get('/data', (req, res, next) => {
 
   if (selectedDate == null || theme == null || availableId == null) {
     return res.status(404).render('error', {
-      error: NotFoundError // если данных в куки нет - возвращаем ошибку
+      error: NotFoundError, // если данных в куки нет - возвращаем ошибку
+      loggedIn: req.session.loggedin
     });
   }
 
   res.render('data', {
     date: selectedDate,
     theme: theme,
+    loggedIn: req.session.loggedin
   }); // рендерим форму с вводом данных
 });
 
@@ -168,7 +177,8 @@ homeRouter.post(
         date: selectedDate,
         theme: theme,
         formData: formData,
-        error: error
+        error: error,
+        loggedIn: req.session.loggedin
       });
     }
 
@@ -206,7 +216,7 @@ homeRouter.post(
           Id_available: available.Id_available
         } // удаляем номерок из БД
       }))
-      .then(_ => res.render('success'));
+      .then(_ => res.render('success', { loggedIn: req.session.loggedin }));
   }
 );
 
